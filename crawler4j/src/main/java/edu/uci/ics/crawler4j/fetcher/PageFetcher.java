@@ -281,8 +281,8 @@ public class PageFetcher {
             // Setting HttpStatus
             int statusCode = response.getStatusLine().getStatusCode();
 
-            Object[] fetchFileParams = new Object[]{toFetchURL, statusCode};
-            String msg = MessageFormat.format("{0},{1}\n", fetchFileParams);
+            Object[] params = new Object[]{toFetchURL, statusCode};
+            String msg = MessageFormat.format("{0},{1}\n", params);
 
             fw.write(msg);
             fw.flush();

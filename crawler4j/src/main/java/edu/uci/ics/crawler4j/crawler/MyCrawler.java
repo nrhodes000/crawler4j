@@ -47,19 +47,20 @@ public class MyCrawler extends WebCrawler {
             String html = htmlParseData.getHtml();
             Set<WebURL> links = htmlParseData.getOutgoingUrls();
 
-            System.out.println("Text length: " + text.length());
-            System.out.println("Html length: " + html.length());
-            System.out.println("Number of outgoing links: " + links.size());
+//            System.out.println("Text length: " + text.length());
+//            System.out.println("Html length: " + html.length());
+//            System.out.println("Number of outgoing links: " + links.size());
 
             String fileSize = formatIntToString(page.getContentData().length);
             String fileType = page.getContentType().replace("; charset=utf-8", "");
-            Object[] fetchFileParams = new Object[]{url, fileSize, links.size(), fileType};
-            String msg = MessageFormat.format("{0},{1},{2},{3}\n", fetchFileParams);
+            Object[] params = new Object[]{url, fileSize, links.size(), fileType};
+            String msg = MessageFormat.format("{0},{1},{2},{3}\n", params);
 
             FileWriter fw = new FileWriter("./visit_wsj.csv", true);
 
             fw.write(msg);
             fw.flush();
+            fw.close();
         }
     }
 
