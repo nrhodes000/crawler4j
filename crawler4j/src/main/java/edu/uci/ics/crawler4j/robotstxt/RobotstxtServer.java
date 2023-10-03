@@ -157,8 +157,8 @@ public class RobotstxtServer {
                         "contentType: {}", robotsTxtUrl.getURL(), page.getContentType());
                 }
             } else {
-                logger.debug("Can't read this robots.txt: {}  as it's status code is {}",
-                             robotsTxtUrl.getURL(), fetchResult.getStatusCode());
+                //logger.debug("Can't read this robots.txt: {}  as it's status code is {}",
+//                             robotsTxtUrl.getURL(), fetchResult.getStatusCode());
             }
         } catch (SocketException | UnknownHostException | SocketTimeoutException |
             NoHttpResponseException se) {

@@ -53,9 +53,9 @@ public class BasicCrawler extends WebCrawler {
         String url = page.getWebURL().getURL();
         int parentDocid = page.getWebURL().getParentDocid();
 
-        logger.debug("Docid: {}", docid);
-        logger.info("URL: {}", url);
-        logger.debug("Docid of parent page: {}", parentDocid);
+//        logger.debug("Docid: {}", docid);
+//        logger.info("URL: {}", url);
+//        logger.debug("Docid of parent page: {}", parentDocid);
 
         if (page.getParseData() instanceof HtmlParseData) {
             HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
@@ -63,11 +63,11 @@ public class BasicCrawler extends WebCrawler {
             String html = htmlParseData.getHtml();
             Set<WebURL> links = htmlParseData.getOutgoingUrls();
 
-            logger.debug("Text length: {}", text.length());
-            logger.debug("Html length: {}", html.length());
-            logger.debug("Number of outgoing links: {}", links.size());
+//            logger.debug("Text length: {}", text.length());
+//            logger.debug("Html length: {}", html.length());
+//            logger.debug("Number of outgoing links: {}", links.size());
         }
 
-        logger.debug("=============");
+//        logger.debug("=============");
     }
 }

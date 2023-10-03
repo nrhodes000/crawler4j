@@ -125,7 +125,7 @@ public class PageFetcher {
                     throw e;
                 } else {
                     logger.warn("Exception thrown while trying to register https");
-                    logger.debug("Stacktrace", e);
+                    //logger.debug("Stacktrace", e);
                 }
             }
         }
@@ -156,7 +156,7 @@ public class PageFetcher {
 
             HttpHost proxy = new HttpHost(config.getProxyHost(), config.getProxyPort());
             clientBuilder.setProxy(proxy);
-            logger.debug("Working through Proxy: {}", proxy.getHostName());
+            //logger.debug("Working through Proxy: {}", proxy.getHostName());
         }
 
         List<AuthInfo> authInfos = config.getAuthInfos();
@@ -243,8 +243,8 @@ public class PageFetcher {
 
         try {
             httpClient.execute(httpPost);
-            logger.debug("Successfully request to login in with user: {} to: {}", authInfo.getUsername(),
-                    authInfo.getHost());
+            //logger.debug("Successfully request to login in with user: {} to: {}", authInfo.getUsername(),
+//                    authInfo.getHost());
         } catch (ClientProtocolException e) {
             logger.error("While trying to login to: {} - Client protocol not supported",
                     authInfo.getHost(), e);

@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9df7b5de-af86-492b-aaf7-bf1ecee56e43" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../crawler4j-examples/crawler4j-examples-base/src/test/java/edu/uci/ics/crawler4j/examples/basic/BasicCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../crawler4j-examples/crawler4j-examples-base/src/test/java/edu/uci/ics/crawler4j/examples/basic/BasicCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crawler4j-examples/crawler4j-examples-base/src/test/java/edu/uci/ics/crawler4j/examples/multiple/BasicCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../crawler4j-examples/crawler4j-examples-base/src/test/java/edu/uci/ics/crawler4j/examples/multiple/BasicCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crawler4j-examples/crawler4j-examples-base/src/test/java/edu/uci/ics/crawler4j/examples/shutdown/BasicCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../crawler4j-examples/crawler4j-examples-base/src/test/java/edu/uci/ics/crawler4j/examples/shutdown/BasicCrawler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fetch_wsj.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fetch_wsj.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/CrawlConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/CrawlConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/CrawlController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/CrawlController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/MyCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/MyCrawler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/WebCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/WebCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/fetcher/PageFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/fetcher/PageFetcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/robotstxt/RobotstxtParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/robotstxt/RobotstxtParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/robotstxt/RobotstxtServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/robotstxt/RobotstxtServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/util/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/util/IO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/urls_wsj.csv" beforeDir="false" afterPath="$PROJECT_DIR$/urls_wsj.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/visit_wsj.csv" beforeDir="false" afterPath="$PROJECT_DIR$/visit_wsj.csv" afterDir="false" />
     </list>
@@ -100,7 +108,9 @@
       <workItem from="1696300178275" duration="2211000" />
       <workItem from="1696306385694" duration="1897000" />
       <workItem from="1696343919497" duration="1872000" />
-      <workItem from="1696348147405" duration="706000" />
+      <workItem from="1696348147405" duration="773000" />
+      <workItem from="1696352085274" duration="34000" />
+      <workItem from="1696359182708" duration="11421000" />
     </task>
     <servers />
   </component>

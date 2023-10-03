@@ -92,7 +92,7 @@ public class RobotstxtParser {
                     logger.info("Unrecognized rule in robots.txt: {}", rule);
                 }
             } else {
-                logger.debug("Unrecognized line in robots.txt: {}", line);
+                //logger.debug("Unrecognized line in robots.txt: {}", line);
             }
         }
 

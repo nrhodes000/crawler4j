@@ -1,5 +1,6 @@
 package edu.uci.ics.crawler4j.crawler;
 
+import edu.uci.ics.crawler4j.parser.BinaryParseData;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 
@@ -12,8 +13,9 @@ import java.util.regex.Pattern;
 
 public class MyCrawler extends WebCrawler {
 
-    private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif"
-        + "|mp3|mp4|zip|gz))$");
+    private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif|mp3|mp4|zip|gz|woff2))$");
+
+    private static final Pattern imgPatterns = Pattern.compile(".*(\\.(bmp|gif|jpe?g|png))$");
 
     /**
      * This method receives two parameters. The first parameter is the page
@@ -26,10 +28,18 @@ public class MyCrawler extends WebCrawler {
      * referringPage parameter to make the decision.
      */
     @Override
-    public boolean shouldVisit(Page referringPage, WebURL url) {
+    public boolean shouldVisit(Page referringPage, WebURL url) throws IOException {
         String href = url.getURL().toLowerCase();
-        return !FILTERS.matcher(href).matches()
-            && href.startsWith("https://www.wsj.com/");
+        boolean shouldVisitBool = (!FILTERS.matcher(href).matches() || imgPatterns.matcher(href).matches()) && href.startsWith("https://www.wsj.com/");
+        boolean doesContainTargetUrl = url.getURL().contains("www.wsj.com");
+        String okOrNotOk = doesContainTargetUrl ? "OK" : "N_OK";
+        FileWriter fw = new FileWriter("urls_wsj.csv", true);
+        Object[] params = new Object[]{url.getURL(), okOrNotOk};
+        String msg = MessageFormat.format("{0},{1}\n", params);
+        fw.write(msg);
+        fw.flush();
+        fw.close();
+        return shouldVisitBool;
     }
 
     /**
@@ -54,6 +64,18 @@ public class MyCrawler extends WebCrawler {
             String fileSize = formatIntToString(page.getContentData().length);
             String fileType = page.getContentType().replace("; charset=utf-8", "");
             Object[] params = new Object[]{url, fileSize, links.size(), fileType};
+            String msg = MessageFormat.format("{0},{1},{2},{3}\n", params);
+
+            FileWriter fw = new FileWriter("./visit_wsj.csv", true);
+
+            fw.write(msg);
+            fw.flush();
+            fw.close();
+        }
+        else if (page.getParseData() instanceof BinaryParseData) {
+            String fileSize = formatIntToString(page.getContentData().length);
+            String fileType = page.getContentType().replace("; charset=utf-8", "");
+            Object[] params = new Object[]{url, fileSize, 0, fileType};
             String msg = MessageFormat.format("{0},{1},{2},{3}\n", params);
 
             FileWriter fw = new FileWriter("./visit_wsj.csv", true);

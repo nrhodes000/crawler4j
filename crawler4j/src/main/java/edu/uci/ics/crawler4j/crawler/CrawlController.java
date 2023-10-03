@@ -104,7 +104,7 @@ public class CrawlController {
         File folder = new File(config.getCrawlStorageFolder());
         if (!folder.exists()) {
             if (folder.mkdirs()) {
-                logger.debug("Created folder: " + folder.getAbsolutePath());
+                //logger.debug("Created folder: " + folder.getAbsolutePath());
             } else {
                 throw new Exception(
                     "couldn't create the storage folder: " + folder.getAbsolutePath() +
@@ -126,7 +126,7 @@ public class CrawlController {
         File envHome = new File(config.getCrawlStorageFolder() + "/frontier");
         if (!envHome.exists()) {
             if (envHome.mkdir()) {
-                logger.debug("Created folder: " + envHome.getAbsolutePath());
+                //logger.debug("Created folder: " + envHome.getAbsolutePath());
             } else {
                 throw new Exception(
                     "Failed creating the frontier folder: " + envHome.getAbsolutePath());

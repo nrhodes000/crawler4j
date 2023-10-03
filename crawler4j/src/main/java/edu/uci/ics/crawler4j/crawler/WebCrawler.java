@@ -369,7 +369,7 @@ public class WebCrawler implements Runnable {
      * @return if the url should be included in the crawl it returns true,
      *         otherwise false is returned.
      */
-    public boolean shouldVisit(Page referringPage, WebURL url) {
+    public boolean shouldVisit(Page referringPage, WebURL url) throws IOException {
         if (myController.getConfig().isRespectNoFollow()) {
             return !((referringPage != null &&
                     referringPage.getContentType() != null &&
@@ -430,15 +430,8 @@ public class WebCrawler implements Runnable {
 
             page.setFetchResponseHeaders(fetchResult.getResponseHeaders());
             page.setStatusCode(statusCode);
-            FileWriter fw = new FileWriter("urls_wsj.csv", true);
-            String msg = "";
             if (statusCode < 200 ||
                 statusCode > 299) { // Not 2XX: 2XX status codes indicate success
-                Object[] params = new Object[]{curURL.getURL(), "N_OK"};
-                msg = MessageFormat.format("{0},{1}\n", params);
-                fw.write(msg);
-                fw.flush();
-                fw.close();
                 if (statusCode == HttpStatus.SC_MOVED_PERMANENTLY ||
                     statusCode == HttpStatus.SC_MOVED_TEMPORARILY ||
                     statusCode == HttpStatus.SC_MULTIPLE_CHOICES ||
@@ -460,7 +453,7 @@ public class WebCrawler implements Runnable {
                     if (myController.getConfig().isFollowRedirects()) {
                         int newDocId = docIdServer.getDocId(movedToUrl);
                         if (newDocId > 0) {
-                            logger.debug("Redirect page: {} is already seen", curURL);
+                            //logger.debug("Redirect page: {} is already seen", curURL);
                             return;
                         }
 
@@ -477,13 +470,13 @@ public class WebCrawler implements Runnable {
                                 webURL.setDocid(docIdServer.getNewDocID(movedToUrl));
                                 frontier.schedule(webURL);
                             } else {
-                                logger.debug(
-                                    "Not visiting: {} as per the server's \"robots.txt\" policy",
-                                    webURL.getURL());
+                                //logger.debug(
+//                                    "Not visiting: {} as per the server's \"robots.txt\" policy",
+//                                    webURL.getURL());
                             }
                         } else {
-                            logger.debug("Not visiting: {} as per your \"shouldVisit\" policy",
-                                         webURL.getURL());
+                            //logger.debug("Not visiting: {} as per your \"shouldVisit\" policy",
+//                                         webURL.getURL());
                         }
                     }
                 } else { // All other http codes other than 3xx & 200
@@ -499,14 +492,9 @@ public class WebCrawler implements Runnable {
                 }
 
             } else { // if status code is 200
-                Object[] params = new Object[]{curURL.getURL(), "OK"};
-                msg = MessageFormat.format("{0},{1}\n", params);
-                fw.write(msg);
-                fw.flush();
-                fw.close();
                 if (!curURL.getURL().equals(fetchResult.getFetchedUrl())) {
                     if (docIdServer.isSeenBefore(fetchResult.getFetchedUrl())) {
-                        logger.debug("Redirect page: {} has already been seen", curURL);
+                        //logger.debug("Redirect page: {} has already been seen", curURL);
                         return;
                     }
                     curURL.setURL(fetchResult.getFetchedUrl());
@@ -549,23 +537,23 @@ public class WebCrawler implements Runnable {
                                         webURL.setDocid(docIdServer.getNewDocID(webURL.getURL()));
                                         toSchedule.add(webURL);
                                     } else {
-                                        logger.debug(
-                                            "Not visiting: {} as per the server's \"robots.txt\" " +
-                                            "policy", webURL.getURL());
+                                        //logger.debug(
+//                                            "Not visiting: {} as per the server's \"robots.txt\" " +
+//                                            "policy", webURL.getURL());
                                     }
                                 } else {
-                                    logger.debug(
-                                        "Not visiting: {} as per your \"shouldVisit\" policy",
-                                        webURL.getURL());
+                                    //logger.debug(
+//                                        "Not visiting: {} as per your \"shouldVisit\" policy",
+//                                        webURL.getURL());
                                 }
                             }
                         }
                     }
                     frontier.scheduleAll(toSchedule);
                 } else {
-                    logger.debug("Not looking for links in page {}, "
-                                 + "as per your \"shouldFollowLinksInPage\" policy",
-                                 page.getWebURL().getURL());
+                    //logger.debug("Not looking for links in page {}, "
+//                                 + "as per your \"shouldFollowLinksInPage\" policy",
+//                                 page.getWebURL().getURL());
                 }
 
                 boolean noIndex = myController.getConfig().isRespectNoIndex() &&
@@ -587,9 +575,9 @@ public class WebCrawler implements Runnable {
             onContentFetchError(curURL);
             onContentFetchError(page);
         } catch (NotAllowedContentException nace) {
-            logger.debug(
-                "Skipping: {} as it contains binary content which you configured not to crawl",
-                curURL.getURL());
+            //logger.debug(
+//                "Skipping: {} as it contains binary content which you configured not to crawl",
+//                curURL.getURL());
         } catch (IOException | InterruptedException | RuntimeException e) {
             onUnhandledException(curURL, e);
         } finally {
