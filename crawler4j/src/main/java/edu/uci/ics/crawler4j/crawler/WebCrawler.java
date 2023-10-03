@@ -17,8 +17,11 @@
 
 package edu.uci.ics.crawler4j.crawler;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -427,8 +430,12 @@ public class WebCrawler implements Runnable {
 
             page.setFetchResponseHeaders(fetchResult.getResponseHeaders());
             page.setStatusCode(statusCode);
+            FileWriter fw = new FileWriter("urls_wsj.csv", true);
+            String msg = "";
             if (statusCode < 200 ||
                 statusCode > 299) { // Not 2XX: 2XX status codes indicate success
+                Object[] params = new Object[]{curURL.getURL(), "N_OK"};
+                msg = MessageFormat.format("{0},{1}\n", params);
                 if (statusCode == HttpStatus.SC_MOVED_PERMANENTLY ||
                     statusCode == HttpStatus.SC_MOVED_TEMPORARILY ||
                     statusCode == HttpStatus.SC_MULTIPLE_CHOICES ||
@@ -489,6 +496,8 @@ public class WebCrawler implements Runnable {
                 }
 
             } else { // if status code is 200
+                Object[] params = new Object[]{curURL.getURL(), "OK"};
+                msg = MessageFormat.format("{0},{1}\n", params);
                 if (!curURL.getURL().equals(fetchResult.getFetchedUrl())) {
                     if (docIdServer.isSeenBefore(fetchResult.getFetchedUrl())) {
                         logger.debug("Redirect page: {} has already been seen", curURL);
@@ -564,6 +573,9 @@ public class WebCrawler implements Runnable {
                     visit(page);
                 }
             }
+            fw.write(msg);
+            fw.flush();
+            fw.close();
         } catch (PageBiggerThanMaxSizeException e) {
             onPageBiggerThanMaxSize(curURL.getURL(), e.getPageSize());
         } catch (ParseException pe) {

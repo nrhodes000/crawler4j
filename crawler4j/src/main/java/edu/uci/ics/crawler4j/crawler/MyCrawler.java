@@ -29,7 +29,7 @@ public class MyCrawler extends WebCrawler {
     public boolean shouldVisit(Page referringPage, WebURL url) {
         String href = url.getURL().toLowerCase();
         return !FILTERS.matcher(href).matches()
-            && href.startsWith("https://www.cnn.com/");
+            && href.startsWith("https://www.wsj.com/");
     }
 
     /**
@@ -39,7 +39,7 @@ public class MyCrawler extends WebCrawler {
     @Override
     public void visit(Page page) throws IOException {
         String url = page.getWebURL().getURL();
-        System.out.println("URL: " + url);
+//        System.out.println("URL: " + url);
 
         if (page.getParseData() instanceof HtmlParseData) {
             HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
@@ -73,7 +73,7 @@ public class MyCrawler extends WebCrawler {
                 sb.append(mbSizeString.charAt(i));
             }
         }
-        sb.append("MB");
+        sb.append("KB");
         return sb.toString();
     }
 }

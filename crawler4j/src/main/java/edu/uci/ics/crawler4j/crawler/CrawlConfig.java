@@ -54,13 +54,13 @@ public class CrawlConfig {
      * Maximum depth of crawling For unlimited depth this parameter should be
      * set to -1
      */
-    private int maxDepthOfCrawling = -1;
+    private int maxDepthOfCrawling = 16;
 
     /**
      * Maximum number of pages to fetch For unlimited number of pages, this
      * parameter should be set to -1
      */
-    private int maxPagesToFetch = -1;
+    private int maxPagesToFetch = 20000;
 
     /**
      * user-agent string that is used for representing your crawler to web
@@ -77,7 +77,7 @@ public class CrawlConfig {
      * Politeness delay in milliseconds (delay between sending two requests to
      * the same host).
      */
-    private int politenessDelay = 200;
+    private int politenessDelay = 500;
 
     /**
      * Should we also crawl https pages?
@@ -87,7 +87,7 @@ public class CrawlConfig {
     /**
      * Should we fetch binary content such as images, audio, ...?
      */
-    private boolean includeBinaryContentInCrawling = false;
+    private boolean includeBinaryContentInCrawling = true;
 
     /**
      * Should we process binary content such as image, audio, ... using TIKA?

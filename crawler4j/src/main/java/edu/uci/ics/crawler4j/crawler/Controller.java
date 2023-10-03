@@ -10,8 +10,7 @@ import java.io.FileWriter;
 public class Controller {
     public static void main(String[] args) throws Exception {
         String crawlStorageFolder = "/data/crawl/root";
-        int maxDepthOfCrawling = 1;
-        int numberOfCrawlers = 1;
+        int numberOfCrawlers = 7;
 
         File fetchFile = new File("./fetch_wsj.csv");
         if(fetchFile.exists()) {
@@ -32,7 +31,6 @@ public class Controller {
         urlsFile.createNewFile();
 
         CrawlConfig config = new CrawlConfig();
-        config.setMaxDepthOfCrawling(maxDepthOfCrawling);
         config.setCrawlStorageFolder(crawlStorageFolder);
 
         // Instantiate the controller for this crawl.
@@ -44,7 +42,7 @@ public class Controller {
         // For each crawl, you need to add some seed urls. These are the first
         // URLs that are fetched and then the crawler starts following links
         // which are found in these pages
-        controller.addSeed("https://www.cnn.com/");
+        controller.addSeed("https://www.wsj.com/");
 
         // The factory which creates instances of crawlers.
         CrawlController.WebCrawlerFactory<MyCrawler> factory = MyCrawler::new;
