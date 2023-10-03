@@ -436,6 +436,9 @@ public class WebCrawler implements Runnable {
                 statusCode > 299) { // Not 2XX: 2XX status codes indicate success
                 Object[] params = new Object[]{curURL.getURL(), "N_OK"};
                 msg = MessageFormat.format("{0},{1}\n", params);
+                fw.write(msg);
+                fw.flush();
+                fw.close();
                 if (statusCode == HttpStatus.SC_MOVED_PERMANENTLY ||
                     statusCode == HttpStatus.SC_MOVED_TEMPORARILY ||
                     statusCode == HttpStatus.SC_MULTIPLE_CHOICES ||
@@ -498,6 +501,9 @@ public class WebCrawler implements Runnable {
             } else { // if status code is 200
                 Object[] params = new Object[]{curURL.getURL(), "OK"};
                 msg = MessageFormat.format("{0},{1}\n", params);
+                fw.write(msg);
+                fw.flush();
+                fw.close();
                 if (!curURL.getURL().equals(fetchResult.getFetchedUrl())) {
                     if (docIdServer.isSeenBefore(fetchResult.getFetchedUrl())) {
                         logger.debug("Redirect page: {} has already been seen", curURL);
@@ -573,9 +579,6 @@ public class WebCrawler implements Runnable {
                     visit(page);
                 }
             }
-            fw.write(msg);
-            fw.flush();
-            fw.close();
         } catch (PageBiggerThanMaxSizeException e) {
             onPageBiggerThanMaxSize(curURL.getURL(), e.getPageSize());
         } catch (ParseException pe) {

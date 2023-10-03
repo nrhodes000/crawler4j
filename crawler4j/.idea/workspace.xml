@@ -7,9 +7,7 @@
     <list default="true" id="9df7b5de-af86-492b-aaf7-bf1ecee56e43" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fetch_wsj.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fetch_wsj.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/CrawlConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/CrawlConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/MyCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/MyCrawler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/WebCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/WebCrawler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/urls_wsj.csv" beforeDir="false" afterPath="$PROJECT_DIR$/urls_wsj.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/visit_wsj.csv" beforeDir="false" afterPath="$PROJECT_DIR$/visit_wsj.csv" afterDir="false" />
@@ -29,7 +27,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="crawler4j-parent" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -94,6 +97,10 @@
       <workItem from="1696281384793" duration="108000" />
       <workItem from="1696281499856" duration="691000" />
       <workItem from="1696282221916" duration="8675000" />
+      <workItem from="1696300178275" duration="2211000" />
+      <workItem from="1696306385694" duration="1897000" />
+      <workItem from="1696343919497" duration="1872000" />
+      <workItem from="1696348147405" duration="706000" />
     </task>
     <servers />
   </component>

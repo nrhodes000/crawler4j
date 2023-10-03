@@ -60,7 +60,7 @@ public class CrawlConfig {
      * Maximum number of pages to fetch For unlimited number of pages, this
      * parameter should be set to -1
      */
-    private int maxPagesToFetch = 20000;
+    private int maxPagesToFetch = 4000;
 
     /**
      * user-agent string that is used for representing your crawler to web
