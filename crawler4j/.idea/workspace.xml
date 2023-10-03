@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9df7b5de-af86-492b-aaf7-bf1ecee56e43" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fetch_wsj.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fetch_wsj.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/MyCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/MyCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/fetcher/PageFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/fetcher/PageFetcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/WebCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/WebCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visit_wsj.csv" beforeDir="false" afterPath="$PROJECT_DIR$/visit_wsj.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -3,6 +3,10 @@ package edu.uci.ics.crawler4j.crawler;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -33,7 +37,7 @@ public class MyCrawler extends WebCrawler {
      * to be processed by your program.
      */
     @Override
-    public void visit(Page page) {
+    public void visit(Page page) throws IOException {
         String url = page.getWebURL().getURL();
         System.out.println("URL: " + url);
 
@@ -46,6 +50,29 @@ public class MyCrawler extends WebCrawler {
             System.out.println("Text length: " + text.length());
             System.out.println("Html length: " + html.length());
             System.out.println("Number of outgoing links: " + links.size());
+
+            String fileSize = formatIntToString(page.getContentData().length);
+            String fileType = page.getContentType().replace("; charset=utf-8", "");
+            Object[] fetchFileParams = new Object[]{url, fileSize, links.size(), fileType};
+            String msg = MessageFormat.format("{0},{1},{2},{3}\n", fetchFileParams);
+
+            FileWriter fw = new FileWriter("./visit_wsj.csv", true);
+
+            fw.write(msg);
+            fw.flush();
         }
+    }
+
+    private String formatIntToString(int fileSize) {
+        int mbSize = fileSize / 1000;
+        String mbSizeString = Integer.toString(mbSize);
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < mbSizeString.length(); i++) {
+            if(mbSizeString.charAt(i) != ',') {
+                sb.append(mbSizeString.charAt(i));
+            }
+        }
+        sb.append("MB");
+        return sb.toString();
     }
 }
