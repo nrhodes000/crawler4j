@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9df7b5de-af86-492b-aaf7-bf1ecee56e43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/MyCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/MyCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/MyCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/fetcher/PageFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/fetcher/PageFetcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +89,7 @@
       <updated>1696281383645</updated>
       <workItem from="1696281384793" duration="108000" />
       <workItem from="1696281499856" duration="691000" />
-      <workItem from="1696282221916" duration="5450000" />
+      <workItem from="1696282221916" duration="8675000" />
     </task>
     <servers />
   </component>
@@ -105,17 +107,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/uci/ics/crawler4j/crawler/MyCrawler.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -17,6 +17,8 @@
 
 package edu.uci.ics.crawler4j.fetcher;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -25,6 +27,7 @@ import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -91,7 +94,7 @@ public class PageFetcher {
     protected long lastFetchTime = 0;
     protected IdleConnectionMonitorThread connectionMonitorThread = null;
 
-    public PageFetcher(CrawlConfig config) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException {
+    public PageFetcher(CrawlConfig config) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, IOException {
         this.config = config;
 
         RequestConfig requestConfig = RequestConfig.custom()
@@ -257,6 +260,7 @@ public class PageFetcher {
         PageFetchResult fetchResult = new PageFetchResult(config.isHaltOnError());
         String toFetchURL = webUrl.getURL();
         HttpUriRequest request = null;
+        FileWriter fw = new FileWriter("./fetch_wsj.csv", true);
         try {
             request = newHttpUriRequest(toFetchURL);
             if (config.getPolitenessDelay() > 0) {
@@ -276,6 +280,12 @@ public class PageFetcher {
 
             // Setting HttpStatus
             int statusCode = response.getStatusLine().getStatusCode();
+
+            Object[] fetchFileParams = new Object[]{toFetchURL, statusCode};
+            String msg = MessageFormat.format("{0},{1}\n", fetchFileParams);
+
+            fw.write(msg);
+            fw.flush();
 
             // If Redirect ( 3xx )
             if (statusCode == HttpStatus.SC_MOVED_PERMANENTLY ||
@@ -325,6 +335,7 @@ public class PageFetcher {
             return fetchResult;
 
         } finally { // occurs also with thrown exceptions
+            fw.close();
             if ((fetchResult.getEntity() == null) && (request != null)) {
                 request.abort();
             }

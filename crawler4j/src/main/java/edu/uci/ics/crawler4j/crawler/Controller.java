@@ -4,11 +4,32 @@ import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 
+import java.io.File;
+import java.io.FileWriter;
+
 public class Controller {
     public static void main(String[] args) throws Exception {
         String crawlStorageFolder = "/data/crawl/root";
         int maxDepthOfCrawling = 1;
         int numberOfCrawlers = 1;
+
+        File fetchFile = new File("./fetch_wsj.csv");
+        if(fetchFile.exists()) {
+            fetchFile.delete();
+        }
+        fetchFile.createNewFile();
+
+        File visitFile = new File("./visit_wsj.csv");
+        if(visitFile.exists()) {
+            visitFile.delete();
+        }
+        visitFile.createNewFile();
+
+        File urlsFile = new File("./urls_wsj.csv");
+        if(urlsFile.exists()) {
+            urlsFile.delete();
+        }
+        urlsFile.createNewFile();
 
         CrawlConfig config = new CrawlConfig();
         config.setMaxDepthOfCrawling(maxDepthOfCrawling);
